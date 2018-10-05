@@ -5,3 +5,5 @@ A simple command line tool for encrypting/decrypting text using classical cipher
 Lakshan Ram 
 PhD Student 
 University of Bristol 
+
+## Documentation
