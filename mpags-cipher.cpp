@@ -52,11 +52,11 @@ int main(int argc, char* argv[])
       else
 	{
 	  std::cout<<"ERROR: Check input argument "<< i << "\n Allowed input options are -h, --help, -i [FileName], -o [FileName], --encrypt, --decrypt"<<std::endl;
-	  ERROR=true;
+	  ERROR=true;   // Error propogation
 	  break;
 	}
     }
-  if (ERROR==false)
+  if (ERROR==false) 
   {
 
     std::cout<< "Selected Input File: "<< Input_File <<"\nSelected Output File: "<< Output_File<<std::endl;
@@ -70,59 +70,39 @@ int main(int argc, char* argv[])
   std::string Value {""};
   std::cout<<"Enter the charcters to be encryted. When finished press ENTER and Ctrl + D"<<std::endl;
 
-  while (std::cin>>in_char)
+  while (std::cin>>in_char) //Waits to eneter characters
     {
       test_char=in_char;
-      in_char = toupper(in_char);
+      in_char = toupper(in_char); // Converstto upper case, does not do anything to numbers and non alpha-numeric characters 
       
-      switch(in_char)
+      switch(in_char)  // Converts numbers to letters
 	{
 	case '1':
-	  Value += 'O';
-	  Value += 'N';
-	  Value += 'E';
+	  Value += "ONE";
 	break;
 	
 	case '2':
-	  Value += 'T';
-	  Value += 'W';
-	  Value += 'O';
+	  Value += "TWO";
 	break;
 	
 	case '3':
-	  Value += 'T';
-	  Value += 'H';
-	  Value += 'R';
-	  Value += 'E';
-	  Value += 'E';
+	  Value += "THREE";
 	break;
 	
 	case '4':
-	  Value += 'F';
-	  Value += 'O';
-	  Value += 'U';
-	  Value += 'R';
+	  Value += "FOUR";
 	  break; 
 	  
 	case '5':
-	  Value += 'F';
-	  Value += 'I';
-	  Value += 'V';
-	  Value += 'E';
+	  Value += "FIVE";
 	  break;
 	  
 	case '6':
-	  Value += 'S';
-	  Value += 'I';
-	  Value += 'X';
+	  Value += "SIX";
 	  break;
 	  
 	case '7':
-	  Value += 'S';
-	  Value += 'E';
-	  Value += 'V';
-	  Value += 'E';
-	  Value += 'N';
+	  Value += "SEVEN";
 	  break;
 	  
 	case '8':
@@ -136,18 +116,19 @@ int main(int argc, char* argv[])
 	case '0':
 	  Value += "ZERO";
 	  break;
-	default:
-	  if (in_char != test_char)
+	default:  
+
+	  if (in_char != test_char) // If the charater was converted to upper-case add it to the string 
 	    {
 	      Value += in_char;
 	    }
 	  else
-	    {break;}
+	    {break;} // Ignore the character
 	  
 	  break;
 	}
     }
-  std::cout<<Value<<std::endl;
+  std::cout<<Value<<std::endl; // Print the string
   }
 }
 
